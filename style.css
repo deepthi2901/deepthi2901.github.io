@@ -1,0 +1,72 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	margin-bottom: 0;
+}
+a:hover{
+  color: crimson;
+}
+.navbar{
+	position: fixed;
+	width: 100%;
+	padding: 15px 0;
+	text-decoration: none;
+	background-color: black;
+	font-family: 'Ubuntu', sans-serif;
+}
+.max-width{
+	max-width:1300px;
+	padding: 0 80px;
+	margin: auto;
+}
+.navbar .logo a{
+	color: #fff;
+	font-size: 35px;
+	font-weight: 600;
+}
+
+.navbar .menu li{
+	padding: 10px;
+	list-style: none;
+	display: inline-block;;
+}
+
+.navbar .max-width{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.navbar .menu li a{
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	margin-left: 25px;
+}
+.navbar .menu li a:hover{
+	color: crimson;
+}
+table,th,td{
+	padding: 15px;
+	border:1px solid white;
+	border-collapse: collapse;
+}
+body{
+	background-image: url('background.jpg');
+	margin-right: auto;
+	color:white;
+	margin-top: 0px;
+	border-top: 0px;
+	padding-top: 0;
+	font-family: 'Ubuntu', sans-serif;
+}
+.table1{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.contact .title::after{
+	content: 'get in touch';
+}
