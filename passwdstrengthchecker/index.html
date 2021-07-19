@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Password Checker</title>
+	<style type="text/css">
+		body{
+			background-image: url(bg.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: sans-serif;
+		}
+		#tab{
+			margin-top: 200px;
+			padding: 30px;
+			width: 30%;
+			height: 200px;
+			background: rgb(224, 255, 255, 0.5);
+			border-radius: 10px;
+		}
+		h2{
+			margin-top: 0;
+		}
+		.vals{
+			font-size: 0.8em;
+		}
+		.fa{
+			display: none;
+			color: green;
+		}
+	</style>
+</head>
+<body>
+<center>
+	<div id="tab">
+		<h2>Password Checker</h2>
+	<table cellpadding="3px">
+		<tr>
+			<td>Username: </td>
+			<td><input type="text" name="user" id="username"></td>
+		</tr>
+		<tr>
+			<td>Password: </td>
+			<td><input type="password" name="user" id="pass"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<table class="vals">
+				<tr>
+					<td>Uppercase: <i id="up" class="fa fa-check" aria-hidden="true"></i></td>
+					<td>Number: <i id="nu" class="fa fa-check" aria-hidden="true"></i></td>
+				</tr>
+				<tr>
+					<td>Symbol: <i id="sy" class="fa fa-check" aria-hidden="true"></i></td>
+					<td>length>=6: <i id="len" class="fa fa-check" aria-hidden="true"></i></td>
+				</tr>
+			</td>
+		</table>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="output"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" id="sub" onclick="suc()"></td>
+		</tr>
+	</table>
+	</div>
+</center>
+<script type="text/javascript">
+	document.getElementById("sub").disabled = true;
+	var a = document.querySelector('#pass');
+    a.addEventListener("keyup", passchecker)
+	function passchecker(){
+		var passwd = document.getElementById("pass").value;
+		const doesItHaveNumber = /\d/.test(passwd);
+		const doesItHaveUpper = /[A-Z]/.test(passwd);
+		if(doesItHaveUpper==true){
+			document.getElementById("up").style.display = 'inline-block';
+		} else{
+			document.getElementById("up").style.display = 'none';
+		}
+		if(doesItHaveNumber==true){
+			document.getElementById("nu").style.display = 'inline-block';
+		}else{
+			document.getElementById("nu").style.display = 'none';
+		}
+		if(passwd.length>=6){
+			document.getElementById("len").style.display = 'inline-block';
+		}else{
+			document.getElementById("len").style.display = 'none';
+		}
+		if(passwd.includes('#') || passwd.includes('@') || passwd.includes('&')){
+			document.getElementById("sy").style.display = 'inline-block';
+		}else{
+			document.getElementById("sy").style.display = 'none';
+		}
+		if(passwd=="" || passwd==null){
+			document.getElementById("output").innerHTML = "";
+			document.getElementById("sub").disabled = true;
+		}else if(passwd.length>=6 && doesItHaveUpper==true && doesItHaveNumber==true && (passwd.includes('#') || passwd.includes('@') || passwd.includes('&'))){
+		document.getElementById("output").innerHTML = "Strong Password".fontcolor("green").bold();
+			document.getElementById("sub").disabled = false;
+		} else{
+			document.getElementById("output").innerHTML = "Weak Password".fontcolor("red").bold();
+			document.getElementById("sub").disabled = true;
+		}
+	}
+	
+	function suc(){
+		alert("Welcome, You have a great password!");
+	}
+</script>
+</body>
+</html>
